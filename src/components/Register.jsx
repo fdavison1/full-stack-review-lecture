@@ -1,7 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import './Register.css'
+import axios from 'axios'
+import {updateUserInfo} from '../ducks/reducer'
+import {connect} from 'react-redux'
 
-export default class Register extends React.Component {
+class Register extends React.Component {
     state = {
         email: '',
         name: '',
@@ -16,9 +20,19 @@ export default class Register extends React.Component {
         })
     }
 
+    register = () => {
+        // if (this.state.password1 === this.state.password2)
+        const {name, email, password1:password} = this.state
+        axios.post('auth/register', {name, email, password} )
+        .then(res => {
+            this.props.updateUserInfo(res.data.user)
+        })
+    }
+
+
     render() {
         return (
-            <div>
+            <div className='register'>
 
 
 
@@ -26,7 +40,7 @@ export default class Register extends React.Component {
                 <input
                 value={this.state.email}
                     placeholder='email'
-                    onChange={e => this.handleChange('name', e.target.value)} type="text" />
+                    onChange={e => this.handleChange('email', e.target.value)} type="text" />
                 <input
                 value={this.state.name}
                     onChange={e => this.handleChange('name', e.target.value)}
@@ -46,7 +60,9 @@ export default class Register extends React.Component {
 
 
 
-                    <button>register</button>
+                    <button
+                    onClick={this.register}
+                    >register</button>
 
                     <Link to='/'>
                     <h4>login</h4>
@@ -58,3 +74,10 @@ export default class Register extends React.Component {
         )
     }
 }
+
+
+function mapStateToProps(reduxState){
+    return reduxState
+}
+
+export default connect(mapStateToProps, {updateUserInfo})(Register)
