@@ -1,3 +1,8 @@
+
+DROP TABLE IF EXISTS hash; 
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS people;
+
 CREATE TABLE people (
     people_id SERIAL PRIMARY KEY, 
     name VARCHAR, 

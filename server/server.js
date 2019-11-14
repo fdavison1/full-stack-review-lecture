@@ -18,6 +18,7 @@ app.use(session({
 
 //endpoints
 app.post('/auth/register', authCtrl.register)
+app.post('/auth/login', authCtrl.login)
 
 
 //listening
