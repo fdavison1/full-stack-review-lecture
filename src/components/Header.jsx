@@ -12,9 +12,6 @@ const Header = () => {
             
             
             
-            Header.jsx
-            
-            
             </header>
     )
 }
