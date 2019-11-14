@@ -25,10 +25,10 @@ export default class Dash extends React.Component {
 
                 <Post />
 
-                {/* {this.state.posts.map((post => {
+                {/* {this.state.posts.map( post => {
                     <Post />
 
-                }))} */}
+                })} */}
 
 
 
