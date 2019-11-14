@@ -23,6 +23,7 @@ login = () => {
     .then(res => {
         this.props.updateUserInfo(res.data.user)
         Swal.fire(res.data.message)
+        this.props.history.push('/dash')
     })
 }
 
