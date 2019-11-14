@@ -1,4 +1,5 @@
 import React from 'react'
+import Post from './Post'
 
 export default class Dash extends React.Component {
     state = {
@@ -6,7 +7,9 @@ export default class Dash extends React.Component {
     }
     render(){
         return(
-            <div>Dash.jsx</div>
+            <div>
+                <Post />
+            </div>
         )
     }
 }
